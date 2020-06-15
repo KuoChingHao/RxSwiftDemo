@@ -10,11 +10,11 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-private let minimalUsernameLength = 5
-private let minimalPasswordLength = 5
 
 class ViewController: UIViewController {
+    
     let disposeBag = DisposeBag()
+    
     @IBOutlet weak var usernameOutlet: UITextField!
     @IBOutlet weak var usernameValidOutlet: UILabel!
     
@@ -23,6 +23,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var doSomethingOutlet: UIButton!
     
+    private var viewModel: ViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,30 +31,20 @@ class ViewController: UIViewController {
         passwordValidOutlet.text = "Password has to be at least \(minimalPasswordLength) characters"
         
         
-        let usernameValid = usernameOutlet.rx.text.orEmpty
-            .map { $0.count >= minimalUsernameLength }
-            .share(replay: 1) //共享資源，並且只存最後一次的狀態
+        viewModel = ViewModel(username: usernameOutlet.rx.text.orEmpty.asObservable(), password: passwordOutlet.rx.text.orEmpty.asObservable())
         
-        usernameValid
+        
+        viewModel.usernameValid
             .bind(to: passwordOutlet.rx.isEnabled)//綁定UI變化
             .disposed(by: disposeBag)//自動釋放
         
-        usernameValid
+        viewModel.usernameValid
         .bind(to: usernameValidOutlet.rx.isHidden)
         .disposed(by: disposeBag)
         
-        let passwordValid = passwordOutlet.rx.text.orEmpty
-            .map{ $0.count >= minimalPasswordLength }
-            .share(replay: 1)
         
-        passwordValid
-        .bind(to: passwordValidOutlet.rx.isHidden)
-        .disposed(by: disposeBag)
         
-        let everythingValid = Observable.combineLatest(usernameValid, passwordValid) { $0 && $1 }
-        .share(replay: 1)
-        
-        everythingValid
+        viewModel.everythingValid
             .bind(to: doSomethingOutlet.rx.isEnabled)
             .disposed(by: disposeBag)
 

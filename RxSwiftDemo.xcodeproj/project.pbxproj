@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		22C5A305249734F00056416D /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C5A304249734F00056416D /* ViewModel.swift */; };
 		22F3F830249372B6002D1344 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F3F82F249372B6002D1344 /* AppDelegate.swift */; };
 		22F3F832249372B6002D1344 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F3F831249372B6002D1344 /* SceneDelegate.swift */; };
 		22F3F834249372B6002D1344 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F3F833249372B6002D1344 /* ViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		22C5A304249734F00056416D /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		22F3F82C249372B6002D1344 /* RxSwiftDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxSwiftDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22F3F82F249372B6002D1344 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		22F3F831249372B6002D1344 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 				22F3F82F249372B6002D1344 /* AppDelegate.swift */,
 				22F3F831249372B6002D1344 /* SceneDelegate.swift */,
 				22F3F833249372B6002D1344 /* ViewController.swift */,
+				22C5A304249734F00056416D /* ViewModel.swift */,
 				22F3F835249372B6002D1344 /* Main.storyboard */,
 				22F3F838249372B7002D1344 /* Assets.xcassets */,
 				22F3F83A249372B7002D1344 /* LaunchScreen.storyboard */,
@@ -88,7 +91,6 @@
 				2CBFDF7C886B182C9F980F55 /* Pods-RxSwiftDemo.debug.xcconfig */,
 				E669B95D990D081EEBDF569F /* Pods-RxSwiftDemo.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -209,6 +211,7 @@
 			files = (
 				22F3F834249372B6002D1344 /* ViewController.swift in Sources */,
 				22F3F830249372B6002D1344 /* AppDelegate.swift in Sources */,
+				22C5A305249734F00056416D /* ViewModel.swift in Sources */,
 				22F3F832249372B6002D1344 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
